@@ -29,7 +29,7 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
-    "@vitejs/plugin-react-swc": "^3.6.0",
+    "@vitejs/plugin-react-swc": "^4.0.0",
     "autoprefixer": "^10.4.8",
     "cross-env": "^7.0.3",
     "find-root": "^1.1.0",
