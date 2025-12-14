@@ -31,7 +31,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@vitejs/plugin-react-swc": "^3.6.0",
     "autoprefixer": "^10.4.8",
-    "cross-env": "^7.0.3",
+    "cross-env": "^10.0.0",
     "find-root": "^1.1.0",
     "flat": "^5.0.2",
     "javascript-time-ago": "^2.5.9",
