@@ -28,7 +28,7 @@
     "lodash": "^4.17.21",
     "mocha": "^10.7.0",
     "package-json": "^10.0.1",
-    "puppeteer": "^22.11.2",
+    "puppeteer": "^23.0.0",
     "verdaccio": "^5.31.1",
     "zx": "^8.1.5"
   },
