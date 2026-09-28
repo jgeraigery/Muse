@@ -1,0 +1,61 @@
++import { URL } from "url";
+ import React from 'react';
+ import { Radio, Alert } from 'antd';
+ import { useParams, useNavigate } from 'react-router-dom';
+ import AppVariables from './AppVariables';
+ import PluginVariables from './PluginVariables';
+ 
+ export default function EnvironmentVariables({ app }) {
+   const { scope = 'app' } = useParams();
+   const navigate = useNavigate();
+ 
+   const plainOptions = [
+     {
+       label: <span>App</span>,
+       value: 'app',
+     },
+     {
+       label: <span>Plugin</span>,
+       value: 'plugin',
++    // Define the allowlist of trusted hostnames
++    const ALLOWED_HOSTNAMES = ["trusted-domain.com"];
++    try {
++        const parsedUrl = new URL(`/app/${app.name}/variables/${value}`, window.location.origin);
++        if (!ALLOWED_HOSTNAMES.includes(parsedUrl.hostname)) {
++            console.error("Hostname not allowed");
++            return;
++        }
++    } catch (error) {
++        console.error("Invalid URL");
++        return;
++    }
+     },
+   ];
+ 
+   const onChangeRadio = ({ target: { value } }) => {
+     navigate(`/app/${app.name}/variables/${value}`);
+   };
+ 
+   return (
+     <>
+       <Radio.Group
+         options={plainOptions}
+         onChange={onChangeRadio}
+         value={scope}
+         optionType="button"
+         buttonStyle="solid"
+         style={{ marginBottom: '10px' }}
+       />
+       {scope === 'app' && (
+         <>
+           <AppVariables app={app} />
+         </>
+       )}
+       {scope === 'plugin' && (
+         <>
+           <PluginVariables app={app} />
+         </>
+       )}
+     </>
+   );
+ }
